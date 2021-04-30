@@ -13,7 +13,7 @@ AlbumRoutes.post('/albums/create', AlbumController.create) // needs adminAuth
 // AlbumRoutes.get('/albums/:artist_id', AlbumController.getByArtist)
 
 // Get all albums
-// AlbumRoutes.get('/albums', AlbumController.get)
+AlbumRoutes.get('/albums', AlbumController.get)
 
 // Update album
 // AlbumRoutes.patch('/albums/:album_id', AlbumController.update) // needs adminAuth

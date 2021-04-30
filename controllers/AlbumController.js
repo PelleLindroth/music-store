@@ -38,5 +38,14 @@ module.exports = {
       res.json({ success: true, album: created })
 
     } catch (err) { next(err) }
+  },
+  async get(req, res, next) {
+    try {
+      const albums = await Album.find()
+        .populate('artist', 'name')
+        .populate('songs', 'title')
+
+      res.json({ success: true, count: albums.length, albums })
+    } catch (err) { next(err) }
   }
 }

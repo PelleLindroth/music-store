@@ -1,7 +1,7 @@
 const express = require('express')
 const CustomerRoutes = express.Router()
 const CustomerController = require('../controllers/CustomerController')
-const authorize = require('../middleware/authorize')
+const customerAuth = require('../middleware/customerAuth')
 
 // Create customer
 CustomerRoutes.post('/customers/create', CustomerController.create)
@@ -10,15 +10,15 @@ CustomerRoutes.post('/customers/create', CustomerController.create)
 CustomerRoutes.post('/customers/auth', CustomerController.login)
 
 // Get logged in customer
-CustomerRoutes.get('/customers/me', authorize, CustomerController.get)
+CustomerRoutes.get('/customers/me', customerAuth, CustomerController.get)
 
 // Get all customers
 CustomerRoutes.get('/customers', CustomerController.getAll)
 
 // Update customer
-CustomerRoutes.patch('/customers', authorize, CustomerController.update)
+CustomerRoutes.patch('/customers', customerAuth, CustomerController.update)
 
 // Delete customer
-CustomerRoutes.delete('/customers', authorize, CustomerController.delete)
+CustomerRoutes.delete('/customers', customerAuth, CustomerController.delete)
 
 module.exports = CustomerRoutes

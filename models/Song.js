@@ -7,12 +7,13 @@ const songSchema = new Schema({
     required: [true, 'No song title provided']
   },
   artists: [{
-    type: Schema.Types.ObjectId, ref: 'Artist'
+    type: Schema.Types.ObjectId, ref: 'Artist',
+    required: [true, 'No artist id provided']
   }],
   albums: [{
     type: Schema.Types.ObjectId, ref: 'Album'
   }],
-  composer: [{
+  composers: [{
     type: Schema.Types.ObjectId, ref: 'Artist'
   }],
   playingTime: {
@@ -20,3 +21,7 @@ const songSchema = new Schema({
     required: [true, 'No playingTime for song provided']
   }
 })
+
+const Song = mongoose.model('Song', songSchema)
+
+module.exports = Song

@@ -41,16 +41,19 @@ module.exports = {
   async update(req, res, next) {
     try {
       const where = { email: req.customer.email }
-      const updates = {}
-      req.body.firstName && (updates.firstName = req.body.firstName)
-      req.body.lastName && (updates.lastName = req.body.lastName)
-      req.body.address && (updates.address = req.body.address)
+      const updateable = ['firstName', 'lastName', 'address']
+      const updates = Object.keys(req.body).reduce((updateObj, key) => {
+        updateable.includes(key) && (updateObj[key] = req.body[key])
 
+        return updateObj
+      }, {})
+      console.log(updates);
       const action = {
         $set: updates
       }
 
       const updated = await Customer.findOneAndUpdate(where, action, { new: true })
+      console.log(updated);
       if (!updated) {
         res.json({ success: false, message: 'Could not update' })
       } else {

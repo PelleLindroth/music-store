@@ -8,7 +8,7 @@ const CustomerRoutes = require('./routes/CustomerRoutes')
 const ArtistRoutes = require('./routes/ArtistRoutes')
 const AlbumRoutes = require('./routes/AlbumRoutes')
 const SongRoutes = require('./routes/SongRoutes')
-
+// test comment new gh token
 app.use(express.json())
 
 app.use('/api/v1', AdminRoutes, CustomerRoutes, ArtistRoutes, AlbumRoutes, SongRoutes)

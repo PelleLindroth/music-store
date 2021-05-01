@@ -4,7 +4,7 @@ const CustomerController = require('../controllers/CustomerController')
 const customerAuth = require('../middleware/customerAuth')
 
 // Create customer
-CustomerRoutes.post('/customers/create', CustomerController.create)
+CustomerRoutes.post('/customers', CustomerController.create)
 
 // Login customer
 CustomerRoutes.post('/customers/auth', CustomerController.login)

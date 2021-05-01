@@ -4,7 +4,7 @@ const AlbumController = require('../controllers/AlbumController')
 const adminAuth = require('../middleware/adminAuth')
 
 // Create new album
-AlbumRoutes.post('/albums/create', AlbumController.create) // needs adminAuth
+AlbumRoutes.post('/albums', AlbumController.create) // needs adminAuth
 
 // Get all albums
 AlbumRoutes.get('/albums', AlbumController.get)

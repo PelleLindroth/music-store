@@ -5,7 +5,6 @@ const orderSchema = new Schema({
   items: [{
     type: Schema.Types.ObjectId, ref: 'Album'
   }],
-  createdAt: Date,
   payed: {
     type: Boolean,
     default: false
@@ -18,6 +17,8 @@ const orderSchema = new Schema({
     type: Schema.Types.ObjectId, ref: 'Customer',
     required: [true, 'No customer supplied']
   }
+}, {
+  timestamps: true
 })
 
 const Order = mongoose.model('Order', orderSchema)
